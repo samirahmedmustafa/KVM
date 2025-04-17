@@ -11,8 +11,7 @@
 
 - install extra tools:
 
-`yum -y install virt-top libguestfs-tools virt-install virt-manager
-`
+`yum -y install virt-top libguestfs-tools virt-install virt-manager guestfs-tools`
 
 - check for modules:
 
