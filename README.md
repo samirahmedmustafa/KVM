@@ -72,6 +72,13 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 --os-variant linux --osinfo rocky9 --network network='default',model=virtio \
 --extra-args 'console=ttyS0,115200n8 serial' --nographics
 ```
+
+- to check VMs status
+  `virsh list --all`
+  
+- to start a VM
+  `virsh start rocky9-cli-vm`
+  
 - to shutdown a VM:
 
 `virsh shutdown rocky9-cli-vm`
@@ -157,6 +164,18 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 virsh net-dhcp-leases private
 virsh domifaddr rocky9-cli-vm
 ```
+
+- create a clone from VM:
+
+  `virt-clone --original rocky9-cli-vm --name=rocky9-cli-vm-template --auto-clone`
+
+- create a template from the clone, removing all user accounts except ansible user
+
+  `virt-sysprep -d rocky9-cli-vm --enable user-account --keep-user-accounts ansible`
+ 
+- create a clone from template
+
+  `virt-clone --original=rocky9-cli-vm-template --name=rocky_clone --auto-clone`
 
 - log/ssh to the VM and check the interface details from inside
 
