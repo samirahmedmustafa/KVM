@@ -73,6 +73,13 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 --os-variant linux --osinfo rocky9 --network network='default',model=virtio \
 --extra-args 'console=ttyS0,115200n8 serial' --nographics
 ```
+- to shutdown a VM:
+
+`virsh shutdown rocky9-cli-vm`
+
+- to remove a VM with including provisioned storage:
+
+`virsh undefine rocky9-cli-vm --remove-all-storage`
 
 - to create a new pool(directory /data/VMs/DB_shared needs to be created manually):
 
