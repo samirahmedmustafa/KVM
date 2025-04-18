@@ -92,10 +92,31 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 
 - to create 12GB disk in the pool DB_shared:
 
-  ```
-  virsh vol-create-as DB_shared disk1.qcow2 12G --format qcow2
-  virsh attach-disk rocky9-cli-vm --source /data/VMs/DB_shared/disk1.qcow2 --target vdb --cache none --driver qemu --subdriver qcow2 --config
-  ```
+  `virsh vol-create-as DB_shared disk1.qcow2 12G --format qcow2`
+
+- to attach the storage to a VM
+  
+  `virsh attach-disk rocky9-cli-vm --source /data/VMs/DB_shared/disk1.qcow2 --target vdb --cache none --driver qemu --subdriver qcow2 --config`
+
+- to list the attached storages in a VM
+
+  `virsh domblklist rocky9-cli-vm`
+
+- to detach the storage from a VM
+
+  `virsh detach-disk --target vdb --domain rocky9-cli-vm`
+
+- to list pools
+
+  `virsh pool-list`
+
+- to list volumes inside a pool DB_shared
+
+  `virsh vol-list DB_shared`
+
+- to delete a volume inside a pool DB_shared
+
+  `virsh vol-delete disk1-clone-clone.qcow2 --pool DB_shared`
 
 - to create a new network:
 
