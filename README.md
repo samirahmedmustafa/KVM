@@ -33,13 +33,11 @@ Delete the connection by name or UUID
 
 - Add a physical interface to the bridge:
 
- `nmcli connection add type bridge-slave ifname enp0s3 master br0
-`
+ `nmcli connection add type bridge-slave ifname enp0s3 master br0`
 
 - Modify the connection details. To use DHCP for IP address assignment, run
 
-  `nmcli connection modify br0 ipv4.method auto
-`
+  `nmcli connection modify br0 ipv4.method auto`
 
 - Alternatively, provide the data for a static IP address:
 
@@ -52,13 +50,12 @@ Delete the connection by name or UUID
 
 - Activate the bridge and interface with:
 
-  `sudo nmcli connection up br0
-`
+  `sudo nmcli connection up br0`
 
 - test the setup:
 
- `sudo virt-install --name=ubuntu --ram=3072 --vcpus=2 --file=/var/lib/libvirt/images/ubuntu.img,size=20 --cdrom=Downloads/ubuntu-24.04.1-desktop-amd64.iso --network bridge=br0 --nographics
-`
+ `sudo virt-install --name=ubuntu --ram=3072 --vcpus=2 --file=/var/lib/libvirt/images/ubuntu.img,size=20 --cdrom=Downloads/ubuntu-24.04.1-desktop-amd64.iso --network bridge=br0 --nographics`
+ 
 #Thanks to Marko Aleksic [](https://phoenixnap.com/kb/install-kvm-centos)
 
 ### Now moving to the KVM operational part
@@ -72,6 +69,7 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 ```
 
 - to check VMs status
+  
   `virsh list --all`
   
 - to start a VM
@@ -88,6 +86,14 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 - to create a new pool(directory /data/VMs/DB_shared needs to be created manually):
 
   `virsh pool-define-as DB_shared dir - - - - "/data/VMs/DB_shared"`
+
+- to start a pool
+  
+  `virsh pool-start DB_shared`
+
+- to turn on autostart across reboots
+
+  `virsh pool-autostart ovirt_store`
 
 - to create 12GB disk in the pool DB_shared:
 
