@@ -118,6 +118,10 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 
   `virsh vol-delete disk1-clone-clone.qcow2 --pool DB_shared`
 
+- to delete a pool DB_shared
+
+  `virsh vol-delete  --pool DB_shared`
+
 - to create a new network:
 
   `vim network-private.xml
