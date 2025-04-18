@@ -87,8 +87,7 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 
 - to create a new pool(directory /data/VMs/DB_shared needs to be created manually):
 
-  `virsh pool-define-as DB_shared dir - - - - "/data/VMs/DB_shared"
-`
+  `virsh pool-define-as DB_shared dir - - - - "/data/VMs/DB_shared"`
 
 - to create 12GB disk in the pool DB_shared:
 
@@ -113,12 +112,16 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 - to list volumes inside a pool DB_shared
 
   `virsh vol-list DB_shared`
-
+  
 - to delete a volume inside a pool DB_shared
 
   `virsh vol-delete disk1-clone-clone.qcow2 --pool DB_shared`
 
-- to delete a pool DB_shared
+-  to shutdown the pool
+
+    `virsh pool-destroy DB_shared`
+  
+- to delete a pool DB_shared(all volumes need to be deleted first)
 
   `virsh vol-delete  --pool DB_shared`
 
