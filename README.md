@@ -51,7 +51,7 @@
 
 - test the setup:
 
- `sudo virt-install --name=ubuntu --ram=3072 --vcpus=2 --file=/var/lib/libvirt/images/ubuntu.img,size=20 --cdrom=Downloads/ubuntu-24.04.1-desktop-amd64.iso --network bridge=br0 --nographics`
+  `sudo virt-install --name=ubuntu --ram=3072 --vcpus=2 --file=/var/lib/libvirt/images/ubuntu.img,size=20 --cdrom=Downloads/ubuntu-24.04.1-desktop-amd64.iso --network bridge=br0 --nographics`
  
 #Thanks to Marko Aleksic [](https://phoenixnap.com/kb/install-kvm-centos)
 
