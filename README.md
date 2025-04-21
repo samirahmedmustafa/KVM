@@ -6,8 +6,7 @@
 
 - install virtualization pakacges:
 
-  `dnf groupinstall "Virtualization Host"
-`
+  `dnf groupinstall "Virtualization Host"`
 
 - install extra tools:
 
@@ -19,21 +18,19 @@
 
 - A bridge interface is necessary for accessing VMs from outside of the hypervisor network. To create a bridge interface:
 
-  `nmcli connection show
-`
-Delete the connection by name or UUID
+  `nmcli connection show`
+  
+- Delete the connection by name or UUID
 
-  `nmcli connection delete [name_or_UUID]
-`
+  `nmcli connection delete [name_or_UUID]`
 
 - Add a new bridged connection called br0
 
-  `nmcli connection add type bridge con-name br0 ifname br0
-`
+  `nmcli connection add type bridge con-name br0 ifname br0`
 
 - Add a physical interface to the bridge:
 
- `nmcli connection add type bridge-slave ifname enp0s3 master br0`
+  `nmcli connection add type bridge-slave ifname enp0s3 master br0`
 
 - Modify the connection details. To use DHCP for IP address assignment, run
 
@@ -125,7 +122,7 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 
 -  to shutdown the pool
 
-    `virsh pool-destroy DB_shared`
+  `virsh pool-destroy DB_shared`
   
 - to delete a pool DB_shared(all volumes need to be deleted first)
 
@@ -133,8 +130,7 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 
 - to create a new network:
 
-  `vim network-private.xml
-`
+  `vim network-private.xml`
 ```
 <network>
         <name>private</name>
@@ -148,22 +144,19 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 </network>
 ```
 
-  `virsh net-define --file network-private.xml
-`
+  `virsh net-define --file network-private.xml`
+  
 - to list enabled networks:
 
-  `virsh net-list
-`
+  `virsh net-list`
 
 - to list all networks:
 
-  `virsh net-list --all
-`
+  `virsh net-list --all`
 
 - to enable the new network:
 
-  `virsh net-start private
-`
+  `virsh net-start private`
 
 - to enable autostart:
 
@@ -177,18 +170,15 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 
 - to check the dhcp leases of network:
 
-`virsh net-dhcp-leases private
-`
+  `virsh net-dhcp-leases private`
 
 - check the VM interface connectivity status:
 
-  `virsh domiflist rocky9-cli-vm
-`
+  `virsh domiflist rocky9-cli-vm`
 
 - create a new interface for the VM rocky9-cli-vm, and attach the network interface to the new network private:
  
-  `virsh attach-interface --domain rocky9-cli-vm --type network --source private --model virtio --config --live
-`
+  `virsh attach-interface --domain rocky9-cli-vm --type network --source private --model virtio --config --live`
 
 - again, check the network details for the interface, such as below:
 
