@@ -128,6 +128,10 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 
   `virsh vol-delete  --pool DB_shared`
 
+- Sometimes you remove the the disk but a reference would still be existing in the domain(VM), you can check as below:
+
+  `virsh domblklist ovirt --inactive`
+
 - to create a new network:
 
   `vim network-private.xml`
