@@ -144,6 +144,10 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 
   `virsh domblklist ovirt --inactive`
 
+- detach even inactive disks from a VM
+
+  `virsh detach-disk --config --target vdd  ovirt` 
+
 - to create a new network:
 
   `vim network-private.xml`
