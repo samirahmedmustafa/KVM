@@ -84,6 +84,10 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 
   `virsh pool-define-as DB_shared dir - - - - "/data/VMs/DB_shared"`
 
+- check the list of pools:
+
+  `virsh pool-list`
+
 - to start a pool
   
   `virsh pool-start DB_shared`
@@ -95,6 +99,14 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 - to create 12GB disk in the pool DB_shared:
 
   `virsh vol-create-as DB_shared disk1.qcow2 12G --format qcow2`
+
+- check list of volume inside the pool
+
+  `virsh vol-list ovirt_store`
+
+- check volume sizing details in a pool
+
+  `virsh vol-info --pool ovirt_store disk3.qcow2`
 
 - to attach the storage to a VM
   
