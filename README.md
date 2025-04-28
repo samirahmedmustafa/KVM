@@ -59,11 +59,11 @@
 
 - to create a VM:
 
-```
-virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/Rocky-9.5-x86_64-dvd.iso --disk path=/data/VMs/rocky9-cli-vm/centos7-ks.qcow2,format=qcow2,size=10,bus=virtio \
---os-variant linux --osinfo rocky9 --network network='default',model=virtio \
---extra-args 'console=ttyS0,115200n8 serial' --nographics
-```
+  ```
+  virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/Rocky-9.5-x86_64-dvd.iso --disk path=/data/VMs/rocky9-cli-vm/centos7-ks.qcow2,format=qcow2,size=10,bus=virtio \
+  --os-variant linux --osinfo rocky9 --network network='default',model=virtio \
+  --extra-args 'console=ttyS0,115200n8 serial' --nographics
+  ```
 
 - to check VMs status
   
@@ -110,7 +110,7 @@ virt-install --name=rocky9-cli-vm --vcpus=1 --memory=2048 --location /data/iso/R
 
 - to attach the storage to a VM
   
-  `virsh attach-disk rocky9-cli-vm --source /data/VMs/DB_shared/disk1.qcow2 --target vdb --cache none --driver qemu --subdriver qcow2 --config`
+  `virsh attach-disk rocky9-cli-vm --source /data/VMs/DB_shared/disk1.qcow2 --target vdb --cache none --driver qemu --subdriver qcow2 --config --live`
 
 - to list the attached storages in a VM
 
