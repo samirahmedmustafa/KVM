@@ -220,6 +220,13 @@
   `virt-clone --original=rocky9-cli-vm-template --name=rocky_clone --auto-clone`
 
 - log/ssh to the VM and check the interface details from inside
+- log through the console if IP address is unknow
+  
+  `virsh console ansible`
+  
+- start the machine with grub menu access
+  
+  `virsh start --console ansible`
 
 
 
