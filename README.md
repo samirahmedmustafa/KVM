@@ -106,6 +106,12 @@
   `qemu-img resize /data/VMs/pgserver/store/disk1.qcow2 +20G`
   `virsh start pgserver`
 
+  Using LVM inside the VM
+
+   `pvresize /dev/vdb`
+   `lvresize /dev/datavg/product`
+   `lvextend -l+100%FREE -r /dev/datavg/product`
+
 - check list of volume inside the pool
 
   `virsh vol-list ovirt_store`
