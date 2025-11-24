@@ -100,6 +100,12 @@
 
   `virsh vol-create-as DB_shared disk1.qcow2 12G --format qcow2`
 
+- extend disk size by 20GBs
+
+  `virsh shutdown pgserver`
+  `qemu-img resize /data/VMs/pgserver/store/disk1.qcow2 +20G`
+  `virsh start pgserver`
+
 - check list of volume inside the pool
 
   `virsh vol-list ovirt_store`
