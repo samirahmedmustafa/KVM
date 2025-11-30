@@ -256,5 +256,17 @@
       <bridge name='br0'/>
     </network>
   ```
-  2. Modify the IP and gateway inside the VM, then restart the VM
+  2.Dump the VM XML to a file then modify the respective interface to be a `bridge`
+    `virsh dumpxml home_appliance > home_appliance.xml`
+    ```
+    <interface type='bridge'>
+      <mac address='52:54:00:eb:86:8e'/>
+      <source bridge='br0'/>
+      <target dev='vnet22'/>
+      <model type='virtio'/>
+      <alias name='net0'/>
+      <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
+    </interface>
+    ```
+  3. Modify the IP and gateway inside the VM, then restart the VM
      
