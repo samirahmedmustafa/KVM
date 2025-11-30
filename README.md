@@ -257,7 +257,9 @@
     </network>
   ```
   2. Dump the VM XML to a file then modify the respective interface to be a `bridge`, then define the VM configuration using the `xml` file
+     
     `virsh dumpxml home_appliance > home_appliance.xml`
+
     ```
     <interface type='bridge'>
       <mac address='52:54:00:eb:86:8e'/>
