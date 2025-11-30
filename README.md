@@ -240,5 +240,21 @@
   
   `virsh start --console ansible`
 
+- to modify an interface to be a bridge interface(accessible from outside)
 
+  1. Check a bridge interface already exists in the host 
 
+  ```
+    virsh net-list --all
+    virsh net-dumpxml bridged-network
+  ```
+  ```
+    <network>
+      <name>bridged-network</name>
+      <uuid>b1702ae7-d4cc-4c7b-a1bd-ca4ac143ae8a</uuid>
+      <forward mode='bridge'/>
+      <bridge name='br0'/>
+    </network>
+  ```
+  2. Modify the IP and gateway inside the VM, then restart the VM
+     
