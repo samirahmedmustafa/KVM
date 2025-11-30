@@ -256,7 +256,7 @@
       <bridge name='br0'/>
     </network>
   ```
-  2.Dump the VM XML to a file then modify the respective interface to be a `bridge`
+  2. Dump the VM XML to a file then modify the respective interface to be a `bridge`, then define the VM configuration using the `xml` file
     `virsh dumpxml home_appliance > home_appliance.xml`
     ```
     <interface type='bridge'>
@@ -268,5 +268,6 @@
       <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
     </interface>
     ```
+    `virsh define home_appliance.xml`
   3. Modify the IP and gateway inside the VM, then restart the VM
      
