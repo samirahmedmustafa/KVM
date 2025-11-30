@@ -271,5 +271,6 @@
     </interface>
     ```
     `virsh define home_appliance.xml`
+  
   3. Modify the IP and gateway inside the VM, then restart the VM
      
