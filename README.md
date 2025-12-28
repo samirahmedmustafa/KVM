@@ -221,7 +221,7 @@
 
 - create a clone from VM:
 
-  `virt-clone --original rocky9-cli-vm --name=rocky9-cli-vm-template --auto-clone`
+  `virt-clone --original=rocky9-cli-vm --name=master2 --file /data/VMs/master2/master2.img --auto-clone`
 
 - create a template from the clone, removing all user accounts except ansible user
 
