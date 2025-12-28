@@ -261,9 +261,9 @@
     `virsh dumpxml home_appliance > home_appliance.xml`
 
     ```
-    <interface type='**bridge**'>
+    <interface type='bridge'>
       <mac address='52:54:00:12:9b:60'/>
-      <source **bridge**='**br0**'/>
+      <source bridge='br0'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
     </interface>
