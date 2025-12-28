@@ -261,12 +261,10 @@
     `virsh dumpxml home_appliance > home_appliance.xml`
 
     ```
-    <interface type='bridge'>
-      <mac address='52:54:00:eb:86:8e'/>
-      <source bridge='br0'/>
-      <target dev='vnet22'/>
+    <interface type='**bridge**'>
+      <mac address='52:54:00:12:9b:60'/>
+      <source **bridge**='**br0**'/>
       <model type='virtio'/>
-      <alias name='net0'/>
       <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
     </interface>
     ```
