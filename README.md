@@ -65,6 +65,12 @@
   --extra-args 'console=ttyS0,115200n8 serial' --nographics
   ```
 
+  or
+
+  ```
+  virt-install --name=rocky10-template --vcpus=2 --memory=2048 --location /data/iso/Rocky-10.1-x86_64-minimal.iso --disk path=/data/VMs/rocky10-template/rocky10-template.qcow2,format=qcow2,size=20,bus=virtio --os-variant linux --osinfo rocky-unknown --network bridge=br0,model=virtio --network network='default',model=virtio --extra-args 'console=ttyS0,115200n8 serial' --nographics
+  ```
+
 - to check VMs status
   
   `virsh list --all`
