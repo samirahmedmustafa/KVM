@@ -225,17 +225,17 @@
   virsh domifaddr rocky9-cli-vm
 ```
 
-- create a clone from VM:
+- Create a clone from VM to specific destination:
 
-  `virt-clone --original=rocky9-cli-vm --name=master2 --file /data/VMs/master2/master2.img --auto-clone`
+  `virt-clone --original=rocky10-template --name=master2 --file /data/VMs/master2/master2.img --auto-clone`
 
-- create a template from the clone, removing all user accounts except ansible user
+- Create a template from the clone, removing all user accounts except ansible user
 
   `virt-sysprep -d rocky9-cli-vm --enable user-account --keep-user-accounts ansible`
  
-- create a clone from template
+- Create a clone from template
 
-  `virt-clone --original=rocky9-cli-vm-template --name=rocky_clone --auto-clone`
+  `virt-clone --original=rocky9-cli-vm-template --name=rocky_clone  --auto-clone`
 
 - log/ssh to the VM and check the interface details from inside
 - log through the console if IP address is unknow
