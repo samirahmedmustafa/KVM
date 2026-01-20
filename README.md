@@ -78,7 +78,8 @@
   
   ```
   virt-install --name master-1 --memory 2048 --vcpus 2 --disk path=/data/VMs/master1/master1.img,bus=virtio \
-  --import --network bridge=br0,model=virtio --network network='default',model=virtio --osinfo rocky-unknown
+  --import --network bridge=br0,model=virtio --network network='default',model=virtio --osinfo rocky-unknown \
+  --nographics
   ```
 - to check VMs status
   
