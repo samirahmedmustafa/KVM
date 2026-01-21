@@ -124,9 +124,11 @@
 
   Using LVM inside the VM
 
-   `pvresize /dev/vdb`
-   `lvresize /dev/datavg/product`
-   `lvextend -l+100%FREE -r /dev/datavg/product`
+   ```
+   pvresize /dev/vdb
+   lvresize /dev/datavg/product
+   lvextend -l+100%FREE -r /dev/datavg/product
+   ```
 
 - check list of volume inside the pool
 
