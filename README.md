@@ -51,7 +51,7 @@
 
 - test the setup:
 
-  `sudo virt-install --name=ubuntu --ram=3072 --vcpus=2 --file=/var/lib/libvirt/images/ubuntu.img,size=20 --cdrom=Downloads/ubuntu-24.04.1-desktop-amd64.iso --network bridge=br0 --nographics`
+  `virt-install --name=ubuntu --ram=3072 --vcpus=2 --file=/var/lib/libvirt/images/ubuntu.img,size=20 --cdrom=Downloads/ubuntu-24.04.1-desktop-amd64.iso --network bridge=br0 --nographics`
  
 #Thanks to Marko Aleksic [](https://phoenixnap.com/kb/install-kvm-centos)
 
@@ -143,7 +143,9 @@
 
 - to attach the storage to a VM
   
-  `virsh attach-disk rocky9-cli-vm --source /data/VMs/DB_shared/disk1.qcow2 --target vdb --cache none --driver qemu --subdriver qcow2 --config --live`
+  ```
+  virsh attach-disk rocky9-cli-vm --source /data/VMs/DB_shared/disk1.qcow2 --target vdb --cache none --driver qemu --subdriver qcow2 --config --live
+  ```
 
 - to list the attached storages in a VM
 
