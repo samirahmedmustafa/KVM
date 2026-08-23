@@ -119,7 +119,7 @@
 - extend disk size by 20GBs
 
   ```
-  virsh shutdown pgserver`
+  virsh shutdown pgserver
   qemu-img resize /data/VMs/pgserver/store/disk1.qcow2 +20G`
   virsh start pgserver
   ```
