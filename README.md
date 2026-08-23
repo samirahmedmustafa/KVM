@@ -118,9 +118,11 @@
 
 - extend disk size by 20GBs
 
-  `virsh shutdown pgserver`
-  `qemu-img resize /data/VMs/pgserver/store/disk1.qcow2 +20G`
-  `virsh start pgserver`
+  ```
+  virsh shutdown pgserver`
+  qemu-img resize /data/VMs/pgserver/store/disk1.qcow2 +20G`
+  virsh start pgserver
+  ```
 
   Using LVM inside the VM
 
